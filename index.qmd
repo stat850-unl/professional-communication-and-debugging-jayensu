@@ -2,7 +2,7 @@
 title: "Homework: Reproducibility and Professional Communication"
 execute:
   error: true
-author: "Your Name"
+author: "Joycelyn Ayensu"
 output: html_document
 
 ---
@@ -47,20 +47,45 @@ Then, using what you know about R and Python, try to debug the problem using the
 
 1. Are the question and problem description complete?
 
-> <!-- Your answer here -->
+> <! I think the problem and question is partially complete. 
+The user describes the function’s purpose (to append a string to a vector meals) and says it “does not work,” but the description lacks crucial details such as if there an error message,How the user is calling the function, what meals looks like before and after running the function, What do they expect vs. what actually happens? -->
+
+
+
+
+
 
 2. Is the issue reproducible? Does it have a description of the problem, with code that reproduces the problem? What could improve it?
 
-> <!-- Your answer here -->
+> <! No, not fully reproducible.The function alone can be copied, but it cannot run successfully because meals is undefined in the function’s environment. -->
 
 3. Is the example minimal? Does it include extra code or information that is not necessary?
 
-> <!-- Your answer here -->
+> <! yes, the function itself is minimal.it successfully avoids extra details but omits essential setup code needed to reproduce the issue.
 
 4. Does the question describe any attempted solutions?
 
-> <!-- Your answer here -->
+> <! No. There's no mention of any alternative approaches tried
+or Debugging steps taken -->
 
+
+Debugging the error,
+```{r}
+meals <- c("breakfast", "lunch")
+
+add <- function(meals, str) {
+  meals <- append(meals, as.character(str))
+  return(meals)
+}
+
+# Call the function and reassign the result
+meals <- add(meals, "dinner")
+
+# Check the result
+print(meals)
+
+
+```
 
 ## Function not working R
 
@@ -99,19 +124,24 @@ mean(z$nitrate,na.rm=TRUE)
 
 1. Are the question and problem description complete?
 
-> <!-- Your answer here -->
+> <! Yes, very complete. The user provides excellent context that they are a beginner in a Coursera course, this is their first function, it returns NA when called but works when steps are run individually. They show both the error and what they expected. -->
 
 2. Is the issue reproducible? Does it have a description of the problem, with code that reproduces the problem? What could improve it?
 
-> <!-- Your answer here -->
+> <! Partly reproducible. Missing the actual CSV data files from the /Users/mike******/Desktop/ directory. 
+However, the bug is visible in the code itself, so an experienced R user can debug it without the data.
+Reproducibility could improve by using the directory argument instead of a hard-coded path as well as sharing a tiny CSV snippet and and showing names(z) or str(z) to reveal column names/types.-->
+
+
 
 3. Is the example minimal? Does it include extra code or information that is not necessary?
 
-> <!-- Your answer here -->
+> <! Yes, it's minimal. Shows only the failing function, the function call, error message, and working manual code. Nothing extraneous. -->
 
 4. Does the question describe any attempted solutions?
 
-> <!-- Your answer here -->
+> <! Yes. The user demonstrates they debugged by running the steps manually outside the function, which worked. This shows good problem-solving effort for a beginner -->
+
 
 
 ## Inexplicable error when trying to export my R notebook
@@ -140,19 +170,22 @@ You can find this sample file [here](https://raw.githubusercontent.com/unl-stati
 
 1. Are the question and problem description complete?
 
-> <!-- Your answer here -->
+> <! I think its partly complete because the user stated the exact error, context (knitting an Rmd), and the relevant line. Missing: a tiny data snippet (e.g., dput(head(Gastropods))) and the exact code chunk where filter() is called with package loads. -->
 
 2. Is the issue reproducible? Does it have a description of the problem, with code that reproduces the problem? What could improve it?
 
-> <!-- Your answer here -->
+> <! Not fully reproducible. It depends on an external CSV (MaroubraZones.csv) and the users local project. 
+To improve, i will suggest the user attaches a 5–10 row sample via dput() or use a built-in dataset with a mock filter, so anyone can reproduce. -->
 
 3. Is the example minimal? Does it include extra code or information that is not necessary?
 
-> <!-- Your answer here -->
+> <! Close, but can be trimmed. The user only needs the package loads and the single failing line; plots and other chunks are not necessary. -->
 
 4. Does the question describe any attempted solutions?
 
-> <!-- Your answer here -->
+> <! I think the solution is limited. The user mentions checking for spelling errors and verifying the column and values exist. No mention of trying alternative syntax, checking documentation, or isolating which specific line causes the error. -->
+
+
 
 
 ## Python if elif else statement
@@ -197,19 +230,20 @@ if country == "Canada":
 
 1. Are the question and problem description complete?
 
-> <!-- Your answer here -->
+> <! Yes. The user clearly describes what the program is supposed to do (“calculate the cost for shipping”), what’s actually happening (“it always prints $6 or $8”), and provides both input examples and the full code snippet. That is a complete problem statement. -->
 
 2. Is the issue reproducible? Does it have a description of the problem, with code that reproduces the problem? What could improve it?
 
-> <!-- Your answer here -->
+> <!Yes, it’s fully reproducible — anyone can copy and run the code in Python.
+The only missing piece is the Python version (since raw_input() is Python 2 syntax). It would help to mention that the problem is seen in Python 2 and confirm the intended data types. -->
 
 3. Is the example minimal? Does it include extra code or information that is not necessary?
 
-> <!-- Your answer here -->
+> <! Yes. It is short, focused, and contains only what is needed to show the error (no extra variables or unrelated functions). -->
 
 4. Does the question describe any attempted solutions?
 
-> <!-- Your answer here -->
+> <! Slightly. The user mentions they “can’t get past that” and observed that the same shipping cost appears each time, but doesn’t specify debugging attempts (e.g., checking variable types or printing intermediate values). -->
 
 
 # Professional Communication

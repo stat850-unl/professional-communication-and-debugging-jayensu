@@ -1,0 +1,147 @@
+---
+title: "Joycelyn Ayensu's CV"
+author:
+  firstname: Joycelyn
+  lastname: Ayensu
+  position: Graduate Research Assistant
+  contacts:
+    - icon: fa envelope
+      text: jayensu2@husker.unl.edu
+      url: "mailto:ae@example.com"
+    - icon: assets/icon/bi-house-fill.svg
+      text: 68503
+      url: https://example.com
+    - icon: fa brands orcid
+      text: 531-248-7348
+      url: https://orcid.org/0000-0000-0000-0000
+    - icon: fa brands linkedin
+      text: LinkedIn
+      url: https://linkedin.com/in/example
+    
+format: awesomecv-typst
+execute:
+  echo: false
+  warning: false
+  message: false
+brand:
+  typography: 
+    fonts:
+      - family: Roboto
+        source: google
+        weight: [100, 400, 700]
+      - family: Source Sans 3
+        source: google
+        weight: [100, 400, 700]
+        style: [normal, italic]
+    base: Source Sans 3
+  color:
+    primary: "#dc3522"
+    link: "#771822"
+  defaults: 
+    awesomecv-typst:
+      font-header: Roboto
+---
+
+```{r}
+# install.packages("typstcv", repos = #"https://kazuyanagimoto.r-universe.dev")
+library(typstcv)
+
+```
+
+```{r,error=FALSE}
+#| include: false
+educ <- data.frame(
+  title = c("Msc. in Actuarial Science", "Bachelor of Science"),
+  location = c("Nebraska-Lincoln","Accra, Ghana" ),
+  date = c("Expected May 2026", "2017-2021"),
+  description = c("University of Nebraska-Lincoln", "Kwame Nkrumah University of Science and Technology")
+)
+
+resume_entry(educ)
+
+
+
+#| include: false
+
+work <- data.frame(
+  title = c("Graduate Research Assistant", "Actuarial Analyst", "Actuarial Intern"),
+  location = c(
+    "Nebraska , Lincoln",
+    "Accra, Ghana",
+    "Accra, Ghana"
+  ),
+  start = as.Date(c("2024-08-21", "2021-08-21", "2019-08-21")),
+  end = as.Date(c("2025-08-21", "2024-08-21", "2019-08-21")),
+  description = c(
+    "University of Nebraska-Lincoln",
+    "Deloitte Ghana",
+    "Vanguard Assurance"
+  )
+)
+work |>
+  format_date(end = "end", date_format = "%Y", sort_by = "start") |>
+  resume_entry()
+
+
+
+award <- data.frame(
+  title = c("Deans List "),
+  location = c("Lincoln , Nebraska"),
+  date = c("2024- 2025"),
+  description = c("In recognition for being on "),
+  detail1 = c("Dean’s List, University of Nebraska Lincoln- College of Business (Fall 2024 Semester)"),
+  detail2 = c("Dean’s List, University of Nebraska Lincoln- College of Business (Spring 2025 Semester)")
+)
+resume_entry(award, details = c("detail1", "detail2"))
+
+
+```
+
+## Education
+
+```{r}
+#| output: asis
+resume_entry(educ)
+```
+
+
+
+
+```{r}
+#| output: asis
+#resume_entry(pub)
+```
+
+
+
+## Work Experience
+
+
+```{r}
+#| output: asis
+
+
+work |>
+  format_date(end = "end", date_format = "%Y", sort_by = "start") |>
+  resume_entry()
+```
+
+
+
+## Awards
+
+```{r}
+#| output: asis
+
+resume_entry(award, details = c("detail1", "detail2"))
+#resume_entry(award, details = grep("^detail", names(award)))
+```
+
+
+
+## Skills
+
+```{r}
+#| output: asis
+resume_entry(skill)
+```
