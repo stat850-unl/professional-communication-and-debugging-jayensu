@@ -1,0 +1,57 @@
+---
+title: "Professional Communication"
+author: "Joycelyn Ayensu"
+format:
+  revealjs: default
+  beamer: default
+---
+
+## Introduction
+
+Hello! My name is Joycelyn Ayensu.\
+I’m a graduate student in Actuarial Science at the University of Nebraska–Lincoln.
+
+## About Me
+
+-   🎂 **Birthday:** February 13,1999
+-   🏡 **Grew up in:** Accra, Ghana
+
+Here’s a photo of me:
+
+![My Photo](Myself.png){width="40%"}
+
+## My Favorite Animal
+
+![My Favorite Animal](Dog.png){width="50%"}
+
+## My Favorite Plot
+
+Here’s one of my favorite plots I’ve made in R:
+
+```{r, error=FALSE}
+#| label: num-int-plot-r
+# defining the sequence
+x <- seq(-3, 3, length.out = 100)
+
+#calculating y=f(x)
+y <- dnorm(x) 
+
+#creating the dataframe for the results
+norm_approx <- data.frame(x=x, y=y) 
+
+library(ggplot2)
+
+ggplot(norm_approx, aes(x = x , y = y)) + geom_line() +
+  ggtitle("Normal Distribution PDF")
+
+```
+
+## Curriculum Vitae (CV)
+
+You can view or download my CV here:
+
+-   [**Click here to open my CV (PDF)**](template-typstcv.pdf){target="_blank"}
+
+::: {.content-visible when-format="beamer"}
+<embed src="template-typstcv.pdf" type="application/pdf" width="80%" height="500px" />
+:::
